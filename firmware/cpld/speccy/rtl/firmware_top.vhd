@@ -160,7 +160,7 @@ architecture rtl of firmware_top is
 	signal trdos	: std_logic :='1';
 	
 	signal kb : std_logic_vector(4 downto 0) := "11111";
-	signal joy : std_logic_vector(4 downto 0) := "11111";
+	signal joy : std_logic_vector(7 downto 0) := "11111111";
 	signal nmi : std_logic;
 	signal reset : std_logic;
 	signal turbo : std_logic;
@@ -229,7 +229,7 @@ begin
 		port_7ffd when port_read = '1' and A = X"7FFD" else  -- #7FFD - system port 
 		"00000" & ram_ext when port_read = '1' and A = X"DFFD" else  -- #DFFD - system port 
 		"111" & kb(4 downto 0) when port_read = '1' and A(0) = '0' else -- #FE - keyboard 
-		"000" & joy when port_read = '1' and A(7 downto 0) = X"1F" else -- #1F - kempston joy
+		joy when port_read = '1' and A(7 downto 0) = X"1F" else -- #1F - kempston joy
 		divmmc_do when divmmc_wr = '1' else 									 -- divMMC
 		zc_do_bus when port_read = '1' and A(7 downto 6) = "01" and A(4 downto 0) = "10111" and enable_zcontroller else -- Z-controller
 		"00" & timexcfg_reg when enable_timex and port_read = '1' and A(7 downto 0) = x"FF" and is_port_ff = '1' else -- #FF (timex config)

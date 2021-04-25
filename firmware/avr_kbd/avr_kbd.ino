@@ -20,7 +20,7 @@
 // Joystick type
 #define JOY_KEMPSTON 0
 #define JOY_SEGA 1
-#define JOY_TYPE JOY_KEMPSTON // JOY_SEGA
+#define JOY_TYPE JOY_SEGA // JOY_SEGA
 
 // Blink mode
 #define BLINK_ROMBANK 0 // LED_SPECIAL blinks when rombank is not 0
@@ -781,9 +781,10 @@ void loop()
     matrix[ZX_JOY_DOWN] = !(joy_current_state & SC_BTN_DOWN);
     matrix[ZX_JOY_LEFT] = !(joy_current_state & SC_BTN_LEFT);
     matrix[ZX_JOY_RIGHT] = !(joy_current_state & SC_BTN_RIGHT);
-    matrix[ZX_JOY_FIRE] = !(joy_current_state & SC_BTN_A);
-    matrix[ZX_JOY_FIRE2] = !(joy_current_state & SC_BTN_B);
-    matrix[ZX_JOY_FIRE3] = !(joy_current_state & SC_BTN_C);
+    matrix[ZX_JOY_FIRE] = !(joy_current_state & SC_BTN_B);
+    matrix[ZX_JOY_FIRE2] = !(joy_current_state & SC_BTN_C);
+    matrix[ZX_JOY_FIRE3] = !(joy_current_state & SC_BTN_A);
+    matrix[ZX_JOY_FIRE4] = !(joy_current_state & SC_BTN_START);
     joy_last_state = joy_current_state;    
   }
 #else
@@ -794,7 +795,8 @@ void loop()
   matrix[ZX_JOY_RIGHT] = digitalRead(JOY_RIGHT);
   matrix[ZX_JOY_FIRE] = digitalRead(JOY_FIRE);
   matrix[ZX_JOY_FIRE2] = digitalRead(JOY_FIRE2);
-  matrix[ZX_JOY_FIRE3] = digitalRead(JOY_FIRE3);
+  matrix[ZX_JOY_FIRE3] = HIGH;
+  matrix[ZX_JOY_FIRE4] = HIGH;
 #endif
 
   // transmit kbd always

@@ -93,6 +93,8 @@
 // WAIT signal
 #define ZX_K_WAIT 53
 
+#define ZX_JOY_FIRE4 54
+
 // kbd commands
 #define CMD_KBD_BYTE1 0x01
 #define CMD_KBD_BYTE2 0x02

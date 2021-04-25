@@ -62,7 +62,7 @@ word SegaController::getState()
         return _currentState;
     }
     
-    noInterrupts();
+//    noInterrupts();
     
     // Clear current state
     _currentState = 0;
@@ -78,7 +78,7 @@ word SegaController::getState()
         _sixButtonMode = false;
     }
     
-    interrupts();
+//    interrupts();
     
     _lastReadTime = millis();
 
