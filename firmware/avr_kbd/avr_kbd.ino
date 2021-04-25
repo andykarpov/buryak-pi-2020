@@ -20,7 +20,7 @@
 // Joystick type
 #define JOY_KEMPSTON 0
 #define JOY_SEGA 1
-#define JOY_TYPE JOY_SEGA // JOY_SEGA
+#define JOY_TYPE JOY_KEMPSTON // JOY_SEGA
 
 // Blink mode
 #define BLINK_ROMBANK 0 // LED_SPECIAL blinks when rombank is not 0
